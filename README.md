@@ -15,10 +15,10 @@ Nous avons choisi le domaine suivant :
 Plateforme de jeux vidéo en ligne.
 
 Ce domaine permet de gérer:
-- des joueurs, 
-- des jeux, 
-- des parties,
-- du score, 
+- des joueurs 
+- des jeux 
+- des parties
+- du score 
 - des équipes 
 
 ## Prompt utilisé 
