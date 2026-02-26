@@ -103,3 +103,14 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 | statut_amitie | Statut de la relation | VARCHAR | 12 |
 | date_demande | Date demande d’amitié | DATETIME | 19 |
 | date_decision | Date décision d’amitié | DATETIME | 19 |
+
+
+## Analyse du résultat 
+
+Le résultat généré par l’IA est cohérent avec le domaine choisi : il couvre les joueurs, jeux, parties, scores, équipes et relations sociales.
+Le nombre de données du dictionnaire est conforme (26).
+
+Ajustements réalisés :
+- reformulation de certaines règles pour les rendre plus claires,
+- harmonisation des noms des données,
+- suppression/éviction d’éléments trop techniques non nécessaires au niveau conceptuel.
