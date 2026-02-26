@@ -71,3 +71,35 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 - Une équipe possède un nom unique et un capitaine.
 - En mode équipe, les scores peuvent être associés à l’équipe du joueur.
 
+
+## Dictionnaire de données
+
+| Donnée | Signification | Type | Taille |
+|---|---|---|---|
+| id_joueur | Identifiant unique du joueur | INT | 10 |
+| pseudo | Nom public du joueur | VARCHAR | 30 |
+| email | Email du joueur | VARCHAR | 120 |
+| date_inscription | Date d’inscription | DATE | 10 |
+| niveau | Niveau du joueur | INT | 3 |
+| id_jeu | Identifiant du jeu | INT | 10 |
+| nom_jeu | Nom du jeu | VARCHAR | 80 |
+| genre | Genre du jeu | VARCHAR | 40 |
+| date_sortie | Date de sortie du jeu | DATE | 10 |
+| id_partie | Identifiant de la partie | INT | 10 |
+| date_debut | Date/heure début partie | DATETIME | 19 |
+| date_fin | Date/heure fin partie | DATETIME | 19 |
+| statut_partie | Statut de la partie | VARCHAR | 15 |
+| ranked | Partie classée ou non | BOOLEAN | 1 |
+| mode_jeu | Mode (solo/equipe) | VARCHAR | 10 |
+| score | Score d’un joueur dans une partie | INT | 10 |
+| rang | Rang d’un joueur dans une partie | INT | 3 |
+| abandon | Indique un abandon | BOOLEAN | 1 |
+| id_equipe | Identifiant d’équipe | INT | 10 |
+| nom_equipe | Nom de l’équipe | VARCHAR | 50 |
+| date_creation_equipe | Date création équipe | DATE | 10 |
+| id_capitaine | Joueur capitaine | INT | 10 |
+| id_joueur_1 | Joueur 1 (amitié) | INT | 10 |
+| id_joueur_2 | Joueur 2 (amitié) | INT | 10 |
+| statut_amitie | Statut de la relation | VARCHAR | 12 |
+| date_demande | Date demande d’amitié | DATETIME | 19 |
+| date_decision | Date décision d’amitié | DATETIME | 19 |
