@@ -57,5 +57,17 @@ Le dictionnaire sert à fournir des informations supplémentaires sur chaque don
 Fournis donc les règles de gestion et le dictionnaire de données.
 
 
+## Règles de gestion
 
+- Un joueur possède un identifiant unique.
+- Le pseudo d’un joueur est obligatoire et unique.
+- L’email d’un joueur est obligatoire et unique.
+- Un joueur peut participer à plusieurs parties, mais au plus une fois par partie.
+- Une partie concerne un seul jeu.
+- Une partie a une date/heure de début et un statut (planifiée, en_cours, terminée, annulée).
+- Chaque participation d’un joueur à une partie enregistre un score (score ≥ 0) et éventuellement un rang (rang ≥ 1).
+- Un joueur peut ajouter un autre joueur en ami (relation joueur↔joueur) avec un statut (en_attente, acceptée, refusée, bloquée).
+- Un joueur peut appartenir à une équipe.
+- Une équipe possède un nom unique et un capitaine.
+- En mode équipe, les scores peuvent être associés à l’équipe du joueur.
 
