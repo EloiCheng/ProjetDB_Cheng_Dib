@@ -116,3 +116,6 @@ Ajustements réalisés :
 - suppression/éviction d’éléments trop techniques non nécessaires au niveau conceptuel.
 
 <img width="1670" height="697" alt="image" src="https://github.com/user-attachments/assets/37652d57-f6e8-4d2c-a786-32859201231c" />
+## Modèle Logique de Données (MLD)
+
+![MLD](Looping_project_Partie2_Mld.png)
