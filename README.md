@@ -121,3 +121,11 @@ Ajustements réalisés :
 (MLD)
 
 ![MLD](Looping_project_Partie2_Mld.png)
+
+Scénario d’utilisation
+
+La base de données est utilisée par un responsable exploitation d’une plateforme de jeux vidéo en ligne.
+
+Son rôle est de suivre l’activité des joueurs, analyser les parties jouées, repérer les meilleurs scores, identifier les joueurs les plus actifs, surveiller les signalements et étudier la composition des équipes.
+
+Les requêtes SQL écrites dans le fichier `4_interrogation.sql` permettent d’extraire ces informations à partir des données enregistrées dans la base.
