@@ -1,0 +1,133 @@
+CREATE DATABASE IF NOT EXISTS projetdb;
+USE projetdb;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS PARTICIPER;
+DROP TABLE IF EXISTS AMITIE;
+DROP TABLE IF EXISTS PARTIE;
+DROP TABLE IF EXISTS EQUIPE;
+DROP TABLE IF EXISTS JOUEUR;
+DROP TABLE IF EXISTS SIGNALEMENT;
+DROP TABLE IF EXISTS JEU;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE JEU (
+    id_jeu INT PRIMARY KEY,
+    nom_jeu VARCHAR(80),
+    genre VARCHAR(40),
+    date_sortie DATE
+);
+
+CREATE TABLE SIGNALEMENT (
+    id_signalement INT PRIMARY KEY,
+    raison VARCHAR(100),
+    date_signalement DATETIME
+);
+
+CREATE TABLE JOUEUR (
+    id_joueur INT PRIMARY KEY,
+    pseudo VARCHAR(30) UNIQUE,
+    email VARCHAR(120) UNIQUE,
+    date_inscription DATE,
+    niveau INT,
+    id_equipe INT NULL
+);
+
+CREATE TABLE EQUIPE (
+    id_equipe INT PRIMARY KEY,
+    nom_equipe VARCHAR(50),
+    date_creation DATE,
+    id_joueur INT NULL
+);
+
+CREATE TABLE PARTIE (
+    id_partie INT PRIMARY KEY,
+    date_debut DATETIME,
+    date_fin DATETIME,
+    statut_partie VARCHAR(15),
+    ranked BOOLEAN,
+    mode_jeu VARCHAR(10),
+    id_joueur INT NULL,
+    id_jeu INT,
+    id_signalement INT NULL
+);
+
+CREATE TABLE AMITIE (
+    id_joueur INT,
+    id_joueur_1 INT,
+    statut_amitie VARCHAR(12),
+    date_demande DATETIME,
+    PRIMARY KEY (id_joueur, id_joueur_1)
+);
+
+CREATE TABLE PARTICIPER (
+    id_joueur INT,
+    id_partie INT,
+    id_equipe INT NULL,
+    score INT,
+    rang INT,
+    abandon BOOLEAN,
+    PRIMARY KEY (id_joueur, id_partie)
+);
+
+ALTER TABLE JOUEUR
+ADD CONSTRAINT fk_joueur_equipe
+FOREIGN KEY (id_equipe) REFERENCES EQUIPE(id_equipe)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+ALTER TABLE EQUIPE
+ADD CONSTRAINT fk_equipe_joueur
+FOREIGN KEY (id_joueur) REFERENCES JOUEUR(id_joueur)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTIE
+ADD CONSTRAINT fk_partie_joueur
+FOREIGN KEY (id_joueur) REFERENCES JOUEUR(id_joueur)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTIE
+ADD CONSTRAINT fk_partie_jeu
+FOREIGN KEY (id_jeu) REFERENCES JEU(id_jeu)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTIE
+ADD CONSTRAINT fk_partie_signalement
+FOREIGN KEY (id_signalement) REFERENCES SIGNALEMENT(id_signalement)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+ALTER TABLE AMITIE
+ADD CONSTRAINT fk_amitie_joueur1
+FOREIGN KEY (id_joueur) REFERENCES JOUEUR(id_joueur)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE AMITIE
+ADD CONSTRAINT fk_amitie_joueur2
+FOREIGN KEY (id_joueur_1) REFERENCES JOUEUR(id_joueur)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTICIPER
+ADD CONSTRAINT fk_participer_joueur
+FOREIGN KEY (id_joueur) REFERENCES JOUEUR(id_joueur)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTICIPER
+ADD CONSTRAINT fk_participer_partie
+FOREIGN KEY (id_partie) REFERENCES PARTIE(id_partie)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE PARTICIPER
+ADD CONSTRAINT fk_participer_equipe
+FOREIGN KEY (id_equipe) REFERENCES EQUIPE(id_equipe)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
