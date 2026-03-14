@@ -1,0 +1,71 @@
+Tu travailles pour une entreprise qui développe et exploite une plateforme de jeux vidéo en ligne.
+
+Cette entreprise propose à ses utilisateurs :
+- la création de comptes joueurs,
+- la participation à des parties sur différents jeux,
+- la constitution d’équipes,
+- l’enregistrement de scores et de classements,
+- des interactions sociales entre joueurs,
+- la gestion de signalements liés au comportement des utilisateurs.
+
+L’entreprise souhaite remplir sa base de données avec un volume cohérent de données de test afin de valider son système d’information avant déploiement.
+
+Tu dois agir comme un assistant spécialisé en génération de données SQL réalistes pour une base de données relationnelle.
+
+Voici le schéma de la base :
+
+JOUEUR(id_joueur, pseudo, email, date_inscription, niveau, id_equipe)
+JEU(id_jeu, nom_jeu, genre, date_sortie)
+EQUIPE(id_equipe, nom_equipe, date_creation, id_joueur)
+PARTIE(id_partie, date_debut, date_fin, statut_partie, ranked, mode_jeu, id_joueur, id_jeu, id_signalement)
+AMITIE(id_joueur, id_joueur_1, statut_amitie, date_demande)
+SIGNALEMENT(id_signalement, raison, date_signalement)
+PARTICIPER(id_joueur, id_partie, id_equipe, score, rang, abandon)
+
+Règles métier à respecter :
+- chaque joueur possède un identifiant unique ;
+- le pseudo d’un joueur est unique ;
+- l’email d’un joueur est unique ;
+- le niveau d’un joueur est supérieur ou égal à 0 ;
+- une partie concerne un jeu existant ;
+- une partie a un statut parmi : planifiee, en_cours, terminee, annulee ;
+- une partie a un mode parmi : solo, equipe ;
+- si une date_fin est renseignée, elle doit être postérieure ou égale à la date_debut ;
+- un score est supérieur ou égal à 0 ;
+- un rang est supérieur ou égal à 1 ;
+- abandon vaut 0 ou 1 ;
+- une relation d’amitié a un statut parmi : en_attente, acceptee, refusee, bloquee ;
+- les clés étrangères doivent être respectées.
+
+Consignes de génération :
+- génère des données réalistes pour une plateforme de jeux vidéo moderne ;
+- utilise des pseudos crédibles et variés ;
+- utilise des emails différents pour chaque joueur ;
+- crée des jeux connus ou fictifs plausibles ;
+- crée des équipes avec des noms cohérents dans l’univers gaming ;
+- crée des parties avec des dates plausibles ;
+- crée des relations d’amitié variées ;
+- crée des signalements cohérents avec un contexte de jeu en ligne ;
+- crée des participations crédibles avec scores, rangs et abandons ;
+- respecte l’ordre logique d’insertion pour éviter les erreurs de clés étrangères ;
+- comme il existe une dépendance entre JOUEUR.id_equipe et EQUIPE.id_joueur, insère d’abord les joueurs et équipes avec certaines valeurs NULL si nécessaire, puis utilise des UPDATE pour finaliser les liens.
+
+Volume attendu :
+- 10 jeux
+- 20 joueurs
+- 6 équipes
+- 12 signalements
+- 20 parties
+- 20 relations d’amitié
+- 40 participations
+
+Format de sortie attendu :
+- fournis uniquement du SQL exécutable ;
+- n’ajoute aucune explication ;
+- commence par USE projetdb;
+- écris des requêtes INSERT INTO ;
+- ajoute des UPDATE si nécessaire pour relier correctement joueurs et équipes ;
+- le résultat doit être directement copiable dans un fichier nommé 3_insertion.sql.
+
+Objectif :
+Produire un script SQL d’insertion cohérent, réaliste, exécutable et compatible avec la structure d’une entreprise exploitant une plateforme de jeux vidéo en ligne.
