@@ -130,3 +130,4 @@ WHERE EXISTS (
     WHERE e.id_equipe = j.id_equipe
       AND e.id_joueur IS NOT NULL
 );
+
