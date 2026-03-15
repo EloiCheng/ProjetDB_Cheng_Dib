@@ -39,3 +39,4 @@ CHECK (abandon IN (0, 1));
 ALTER TABLE AMITIE
 ADD CONSTRAINT chk_amitie_statut
 CHECK (statut_amitie IN ('en_attente', 'acceptee', 'refusee', 'bloquee'));
+
